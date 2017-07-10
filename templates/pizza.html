@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,600" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/grid.css">
+    <link rel="stylesheet" href="/static/css/normalize.css">
+    <link rel="stylesheet" href="/static/css/nav.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/app.js"></script>
+    <style>
+      #pizza { display: none;}
+      img {
+        width: 80%;
+        height: auto;
+        box-shadow: 5px 5px 15px #888888;
+      }
+      body {
+        text-align: center;
+        margin-top: 10%;
+      }
+    </style>
+    <script>
+      $(document).ready(function() {
+        $('#trigger').click(function() {
+          $('#pizza').toggle();
+          $(this).text(function(i, text){
+          return text === "Watch Demo" ? "Close Demo" : "Watch Demo";
+          })
+        })
+      });
+    </script>
+  </head>
+  <body>
+    <!--- BEGINNING OF TOP NAVBAR --->
+
+    <nav id="navbar" class="fixed">
+      <ul class="navbar">
+        <li><a href="http://www.preeyasharma.com" class="nav-link">Projects</a></li>
+        <li><a href="http://www.preeyasharma.com/#about" class="nav-link">About</a></li>
+      </ul>
+    </nav>
+    <div id="nav-trigger" class="fixed">
+        <span></span>
+        <nav id="nav-mobile"></nav>
+    </div>
+
+    <!--- END OF TOP NAVBAR --->
+
+    <button class="teal" id="trigger">Watch Demo</button>
+    <a href="https://github.com/sharpree89/pizza_party" target="_blank"><button class="black">Go To Repo</button></a>
+    <p><img id="pizza" src="static/images/pizzapartydemo.gif" alt=""></p>
+
+  </body>
+</html>

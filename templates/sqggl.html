@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>
+       	Web Paint!
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
+    <style>
+
+      select {
+        display: inline !important;
+        width: 12.5%;
+      }
+
+      select:hover {
+        cursor: pointer;
+      }
+
+      .label {
+        display: inline !important;
+        cursor: default;
+        background-color: #00bcd4 ;
+        color: white;
+        border: 1px solid #00bcd4 ;
+      }
+
+      .label:hover, .label:focus, label:active {
+        color: white;
+        cursor: default;
+        border: 1px solid #00bcd4 ;
+      }
+
+      img {
+        width: 300px;
+        height: auto;
+        float: right;
+      }
+
+      canvas {
+        box-shadow: 1px 1px 10px slategrey;
+        margin-bottom: 1%;
+      }
+
+      #controls {
+        padding: 1%;
+        box-shadow: 1px 1px 10px slategrey;
+        float: left;
+        width: 75%;
+      }
+
+      .button-primary {
+        background-color: #F62CFF !important;
+        border: 1px solid #F62CFF !important;
+        color: white;
+      }
+
+      .button-primary:hover, .button-primary:active {
+        background-color: #f78ffc !important;
+        border: 1px solid #f78ffc !important;
+      }
+
+    </style>
+</head>
+
+
+<img src="static/images/logo.png" alt="">
+
+
+  <canvas id="draw"></canvas>
+
+  <div id="controls">
+    <!-- Paint Color -->
+    <button class="label">Color</button>
+    <select id="hex">
+      <option value="#000000">Black</option>
+      <option value="#ffffff">White</option>
+      <option value="#ff0000">Red</option>
+      <option value="#ffa500">Orange</option>
+      <option value="#ffff00">Yellow</option>
+      <option value="#008000">Green</option>
+      <option value="#0000ff">Blue</option>
+      <option value="#4b0082">Indigo</option>
+      <option value="#820bbb">Violet</option>
+      <option value="#ff69b4">Pink</option>
+      <option value="#ffffff">Eraser</option>
+    </select>
+
+    <!-- Brush Width -->
+    <button class="label">Width</button>
+    <select id="width">
+      <option value="1">Thinnest</option>
+      <option value="7">Thin</option>
+      <option value="20">Normal</option>
+      <option value="40">Thick</option>
+      <option value="80">Thickest</option>
+    </select>
+
+    <!-- Brush Style -->
+    <button class="label">Style</button>
+    <select id="style">
+      <option value="round">Round Tip</option>
+      <option value="butt">Flat Edge</option>
+      <option value="square">Square Tip</option>
+    </select>
+
+    <!-- Opacity -->
+    <button class="label">Opacity</button>
+    <select id="opacity">
+      <option value="1">Opaque</option>
+      <option value="0.75">Almost Opaque</option>
+      <option value="0.5">Halfway Transparent</option>
+      <option value="0.25">Almost Transparent</option>
+    </select>
+
+    <br>
+
+    <center>
+      <button class="button-primary" onclick="clearCanvas();">Start Over</button>
+    </center>
+  </div>
+
+<script>
+  // set canvas id to variable
+  var canvas = document.getElementById('draw');
+
+  // get canvas 2D context and set it to the correct size
+  var ctx = canvas.getContext('2d');
+  resize();
+
+  // resize canvas when window is resized
+  function resize() {
+  ctx.canvas.width = window.innerWidth - 325;
+  ctx.canvas.height = window.innerHeight - 200;
+  }
+
+  // add event listeners to specify when functions should be triggered
+  window.addEventListener('resize', resize);
+  document.addEventListener('mousemove', draw);
+  document.addEventListener('mousedown', setPosition);
+  document.addEventListener('mouseenter', setPosition);
+
+  // last known position
+  var pos = { x: 0, y: 0 };
+
+  // new position from mouse events
+  function setPosition(e) {
+  pos.x = e.clientX;
+  pos.y = e.clientY;
+  }
+
+  function draw(e) {
+
+  if (e.buttons !== 1) return; // if mouse is pressed.....
+
+  var color = document.getElementById('hex').value;
+
+  ctx.beginPath(); // begin the drawing path
+
+  ctx.lineWidth = document.getElementById('width').value; // width of line
+  ctx.lineCap = document.getElementById('style').value; // rounded end cap
+  ctx.globalAlpha = document.getElementById('opacity').value; // opacity
+  ctx.strokeStyle = color; // hex color of line
+
+  ctx.moveTo(pos.x, pos.y); // from position
+  setPosition(e);
+  ctx.lineTo(pos.x, pos.y); // to position
+
+  ctx.stroke(); // draw it!
+  }
+
+  // new position from mouse events
+  function clearCanvas(e) {
+   ctx.clearRect(0, 0, canvas.width, canvas.height);
+  }
+</script>

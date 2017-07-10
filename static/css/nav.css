@@ -1,0 +1,211 @@
+/*
+Types of Navbars:
+
+1. Normal Header Navbar
+2. Header Navbar With Dropdown Menu - does not work with responsive! *
+3. Responsive Header Navbar - does not work with dropdown! *
+4. Header Navbar With Search Form - TO DO!
+5. Fixed To Top Header Navbar - works with responsive, dropdown, and normal
+*/
+
+/* TOP NAVBAR STYLING (WITH DROPDOWN MENU OPTION) */
+
+
+/*----- Main Menu Container -----*/
+nav#navbar {
+    width: 100%;
+    height: auto;
+    z-index: 99;
+}
+
+.fixed {
+  position: fixed;
+  top: 0;
+}
+
+/*------ Logo, Links ------*/
+
+a.nav-link, .logo {
+    float: left;
+    padding: 16px 24px;
+    color: #333;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 400;
+    background-color: white;
+}
+
+a.nav-link:hover, .logo:hover {color: rgba(38,166,154,1);}
+
+ul.navbar {
+  background-color: white;
+  border-bottom: 1px solid rgba(119,136,153,0.5);
+  width: 100%;
+  height: 60px;
+  overflow: visible;
+  padding: 0 0 0 10px;
+  margin: 0;
+  position: absolute; /* Ensures that the menu doesn’t affect other elements */
+}
+ul.navbar li 	{
+  float: left;  /* This lines up the menu items horizontally */
+  text-align: center;  /* All text is placed in the center of the box */
+  list-style: none;  /* Removes the default styling (bullets) for the list */
+  padding: 0;
+  margin: 0;
+}
+ul.inner {
+  display: none;  /* Hides the drop-down menu initially */
+}
+ul.navbar li:hover ul.inner {
+  display: block; /* Displays the drop-down box when the menu item is hovered over */
+  min-width: 100px;
+  height: auto;
+  background-color: white;
+  margin: 0; /* Aligns drop-down box underneath the menu item */
+  padding: 0; /* Aligns drop-down box underneath the menu item */
+  border: 1px solid rgba(119,136,153,0.5);
+}
+
+ul.navbar li:hover ul.inner {color: rgba(38,166,154,1);}
+
+ul.navbar li:hover ul.inner li {
+  float: none;
+  display: block;
+  padding: 10px 14px;
+}
+
+ul.inner li a {
+  color: #333;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 400;
+}
+ul.inner li a:hover {color: rgba(38,166,154,1);}
+
+
+/*========== RESPONSIVE NAVBAR STYLING ==========*/
+
+/*------ MOBILE EXPAND BUTTON ------*/
+
+#nav-trigger {
+  display: none;
+  text-align: left;
+}
+
+#nav-trigger span {
+  position: absolute;
+  display: inline-block;
+  font-size: 1.6rem;
+  padding: 16px 24px;
+  color: #333;
+  background-color: white;
+  width: 2000px !important;
+  border-bottom: 1px solid rgba(119,136,153,0.3);
+  cursor: pointer;
+}
+
+/* Show a down arrow */
+#nav-trigger span:after {
+  display: inline-block;
+  font-family: "FontAwesome";
+  content:'\2630';
+
+}
+#nav-trigger span:hover {
+  color: rgba(38,166,154,1);
+}
+
+/* Show an up arrow */
+/*#nav-trigger span.open:after {
+  font-family: "FontAwesome";
+  content: "\f077";
+}*/
+
+/*------ MOBILE VIEW OF NAVBAR ------*/
+
+nav#nav-mobile {
+  position: relative;
+  display: none;
+}
+nav#nav-mobile ul {
+  display: none;
+  list-style-type: none;
+  background-color: white;
+  border: 1px solid rgba(119,136,153,0.5);
+  margin-top: 55px;
+  min-width: 400px;
+  height: auto;
+}
+nav#nav-mobile li {
+  float: none;
+}
+nav#nav-mobile a {
+  display: block;
+  float: none;
+  color: #333;
+}
+nav#nav-mobile a:hover {
+  color: rgba(38,166,154,1);
+}
+
+/* Hide the site logo */
+nav#nav-mobile a.logo {
+  display: none;
+}
+
+/* =Media Queries
+-------------------------------------------------------------- */
+@media all and (max-width: 900px) {
+  #nav-trigger {
+    display: block; }
+
+  nav#navbar {
+    display: none; }
+
+  nav#nav-mobile {
+    display: block; }
+
+}
+
+
+/*========== DROPDOWN MENU STYLING ==========*/
+
+
+#dropdown {position: fixed; top: 60px; margin-left: -25px;}
+
+.trigger {display: inline-block;}
+
+.trigger ul.content {
+  position: absolute;
+  min-width: 160px;
+  display: none;
+  background-color: white;
+  box-shadow: 1px 1px 4px slategrey;
+}
+
+ul.border {border: 1px solid rgba(119,136,153,0.5); box-shadow: none;}
+
+ul.underline li {border-bottom: 1px solid rgba(119,136,153,0.3);}
+
+li.divide {border-top: 1px solid rgba(119,136,153,0.3);}
+
+ul.content li {
+  margin-left: -40px;
+  padding: 10px;
+  display: block !important;
+  overflow: auto;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 1.3rem;
+  font-weight: 400 !important;
+  list-style-type: none;
+}
+
+ul.content li a {font-size: 1.3rem; font-weight: 400 !important; text-decoration: none;}
+
+ul.content li:hover {cursor: pointer; color: white; background-color: rgba(119,136,153,0.5);}
+
+ul.content li:hover a {color: white;}

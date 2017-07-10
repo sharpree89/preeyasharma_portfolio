@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Preeya Sharma</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Muli:300,400,600" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="stylesheet" href="/static/css/grid.css">
+  <link rel="stylesheet" href="/static/css/normalize.css">
+  <link rel="stylesheet" href="/static/css/nav.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="/static/js/app.js"></script>
+  <script>
+    $(document).ready(function() {
+      $(".indigo").on({
+        "mouseover" : function() {
+          this.src = 'static/images/indigoback.png';
+        },
+        "mouseout" : function() {
+          this.src='static/images/indigo.png';
+        }
+      })
+      $(".pizza").on({
+        "mouseover" : function() {
+          this.src = 'static/images/pizzaback.png';
+        },
+        "mouseout" : function() {
+          this.src='static/images/pizza.png';
+        }
+      })
+      $(".timely").on({
+        "mouseover" : function() {
+          this.src = 'static/images/timelyback.png';
+        },
+        "mouseout" : function() {
+          this.src='static/images/timely.png';
+        }
+      })
+      $(".weather").on({
+        "mouseover" : function() {
+          this.src = 'static/images/weatherback.png';
+        },
+        "mouseout" : function() {
+          this.src='static/images/weather.png';
+        }
+      })
+      $(".bakeit").on({
+        "mouseover" : function() {
+          this.src = 'static/images/bakeitback.png';
+        },
+        "mouseout" : function() {
+          this.src='static/images/bakeit.png';
+        }
+      })
+      $(".slime").on({
+        "mouseover" : function() {
+          this.src = 'static/images/slimeback.png';
+        },
+        "mouseout" : function() {
+          this.src='static/images/slime.png';
+        }
+      })
+    });
+  </script>
+  <style>
+      #projects {padding-top: 10%; margin: auto; width: 90%;}
+      #about {margin: auto;}
+
+      img {
+        width: 100%;
+        height: auto;
+        padding-left: 6px;
+      }
+
+      .row {padding-right: 6px;}
+
+      .profile {max-width: 185px; border-radius: 92.5px;}
+
+      .icons img {float: left !important;}
+
+      /*.contact {float: right;}*/
+  </style>
+</head>
+
+<body>
+
+  <!--- BEGINNING OF TOP NAVBAR --->
+
+  <nav id="navbar" class="fixed">
+    <ul class="navbar">
+      <li><a href="http://www.preeyasharma.com" class="nav-link">Projects</a></li>
+      <li><a href="#about" class="nav-link">About</a></li>
+    </ul>
+  </nav>
+  <div id="nav-trigger" class="fixed">
+      <span></span>
+      <nav id="nav-mobile"></nav>
+  </div>
+
+  <!--- END OF TOP NAVBAR --->
+
+    <!-- !PAGE CONTENT! -->
+    <div>
+        <!-- Photo grid -->
+        <a name="projects"></a>
+        <div id="projects">
+
+          <div class="row">
+            <div class="col-m-4 grid">
+              <a href="https://www.indigocss.com" target="_blank">
+                <img class="indigo" src="static/images/indigo.png">
+              </a>
+            </div>
+            <div class="col-m-4 grid">
+              <a href="https://www.preeyasharma.com/pizza.html" target="_blank">
+                <img class="pizza" src="static/images/pizza.png">
+              </a>
+            </div>
+            <div class="col-m-4 grid">
+              <a href="https://www.preeyasharma.com/rpg/index.html" target="_blank">
+                <img class="slime" src="static/images/slime.png">
+              </a>
+            </div>
+            <div class="col-m-4 grid">
+              <a href="http://13.59.133.94/#/login" target="_blank">
+                <img class="bakeit" src="static/images/bakeit.png">
+              </a>
+            </div>
+            <div class="col-m-4 grid">
+              <a href="http://13.59.185.104" target="_blank">
+                <img class="timely" src="static/images/timely.png">
+              </a>
+            </div>
+            <div class="col-m-4 grid">
+              <a href="https://www.preeyasharma.com/weather.html" target="_blank">
+                <img class="weather" src="static/images/weather.png">
+              </a>
+            </div>
+          </div>
+
+        <!-- About section -->
+        <div id="about">
+          <hr>
+          <div>
+            <div class="row">
+              <div class="col-m-6 grid" style="text-align: center; margin-top: 3.5em;">
+                <img class="profile" src="static/images/me.jpg">
+
+                <div class="contact">
+
+                  <a href="mailto:hello@preeyasharma.com" target="_top">
+                    <img class="icons" src="static/images/envelope.png" style="max-width: 32px;">
+                  </a>
+
+                  <div class="tooltip">
+                    <img class="icons" src="static/images/comment-white-oval-bubble.png" style="max-width: 32px;">
+                    <span class="tooltiptext bottom">(816) 560-0634</span>
+                  </div>
+
+                  <a href="https://github.com/sharpree89" target="_blank"><img class="icons" src="static/images/github-sign-square.png" style="max-width: 32px;"></a>
+
+                  <a href="https://www.linkedin.com/in/preeyasharma89/" target="_blank"><img class="icons" src="static/images/linkedin-sign.png" style="max-width: 32px;"></a>
+                </div>
+              </div>
+              <div class="col-m-6 grid">
+                <h4 style="margin: 0;">About Me</h4>
+
+                <p>Every project you see above was created by myself, including this portfolio which utilizes my very own frontend framework, <a target="_blank" class="teal-text" href="https://www.indigocss.com">Indigo.</a></p>
+
+                <p>Over the past year I've spent countless hours coding. I've worked with C#, Javascript, Python, and many other technologies, building web apps and games from the ground up.</p>
+
+                <p>When I'm not coding, I love to bake sweet treats for family and friends, <a target="_blank" class="teal-text" href="https://www.preeyasharma.com/rpg/index.html">play video games</a>, travel to new places, and start DIY projects (sometimes I even finish them).</p>
+
+                <p><a href="https://docs.google.com/document/d/1r4F4kNUPHESgEqM7cn_A74mZWtCu5G2g3RxHTWsswfo/edit?usp=sharing"><button class="pill teal">View Resume</button></a></p>
+              </div>
+            </div>
+            <hr>
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+          <p>Copyright © 2017 Preeya Sharma</p>
+        </footer>
+
+        <!-- End page content -->
+    </div>
+
+</body>
+
+</html>
